@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options { 
+        skipDefaultCheckout(true) 
+    }
+    
     environment {
         DOCKERHUB_USERNAME = 'mubaris2004'
         ROLL_NUMBER = '23bcs62'

@@ -7,12 +7,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Health check (useful for Docker later)
 app.get("/", (req, res) => {
     res.send("Backend is running");
 });
 
-// API endpoint
 app.get("/student-details", (req, res) => {
     res.status(200).json({
         name: "Mohamed Sheik Mubaris",

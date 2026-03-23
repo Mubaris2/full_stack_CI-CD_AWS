@@ -20,17 +20,13 @@ pipeline {
 
         stage('Build Backend Image') {
             steps {
-                script {
-                    docker.build("${DOCKERHUB_USERNAME}/${ROLL_NUMBER}_backend", "./backend")
-                }
+                sh 'docker build -t $DOCKERHUB_USERNAME/${ROLL_NUMBER}_backend ./backend'
             }
         }
 
         stage('Build Frontend Image') {
             steps {
-                script {
-                    docker.build("${DOCKERHUB_USERNAME}/${ROLL_NUMBER}_frontend", "./frontend")
-                }
+                sh 'docker build -t $DOCKERHUB_USERNAME/${ROLL_NUMBER}_frontend ./frontend'
             }
         }
 

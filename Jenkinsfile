@@ -32,13 +32,14 @@ pipeline {
 
         stage('Login to DockerHub') {
             steps {
-                withCredentials([string(
-                    credentialsId: 'dockerhub-pat',
-                    variable: 'DOCKER_PAT'
+                withCredentials([usernamePassword(
+                credentialsId: 'dockerhub-pat',
+                usernameVariable: 'DOCKER_USER',
+                passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh '''
-                    echo $DOCKER_PAT | docker login \
-                    -u mubaris2004 \
+                    echo $DOCKER_PASS | docker login 
+                    -u $DOCKER_USER 
                     --password-stdin
                     '''
                 }

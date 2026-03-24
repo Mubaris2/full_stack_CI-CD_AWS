@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/student-details";
+const API_URL = "http://13.51.168.224:5000/student-details";
 
 async function fetchStudentDetails() {
     try {
